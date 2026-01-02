@@ -74,8 +74,8 @@ class PosteriorSampler:
         indices = batch_candidates_dict['index']
         for idx, s in zip(indices, y):
             idx = str(idx)
-            self.alpha[idx] = self.alpha[idx]*self.decay_ratio + self.prior_alpha * (1-self.decay_ratio) + s * self.args.actor_rollout_ref.rollout.n if self.args.actor_rollout_ref.rollout.n > 1 else 8
-            self.beta[idx] = self.beta[idx]*self.decay_ratio + self.prior_beta * (1-self.decay_ratio) + (1 - s)  * self.args.actor_rollout_ref.rollout.n if self.args.actor_rollout_ref.rollout.n > 1 else 8
+            self.alpha[idx] = self.alpha[idx]*self.decay_ratio + self.prior_alpha * (1-self.decay_ratio) + s * (self.args.actor_rollout_ref.rollout.n if self.args.actor_rollout_ref.rollout.n > 1 else 8)
+            self.beta[idx] = self.beta[idx]*self.decay_ratio + self.prior_beta * (1-self.decay_ratio) + (1 - s)  * (self.args.actor_rollout_ref.rollout.n if self.args.actor_rollout_ref.rollout.n > 1 else 8)
         return None, None, None
     
     
