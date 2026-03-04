@@ -77,7 +77,7 @@ bash recipe/ours/scripts/countdown/cd_verl_3b_topk_noinit.sh
 Technically, MoPPS models each prompt's success rate as a latent variable, performs streaming Bayesian inference, and employs posterior sampling in a constructed multi-armed bandit machine, enabling sample efficient and adaptive prompt selection. 
 
 
-The main implementation is in [`mopps.py`](mopps.py), featuring two key operations:
+The main implementation is in [`mopps.py`](recipe/ours/mopps.py), featuring two key operations:
 
 ### 1️⃣ `train`: Bayesian Inference towards Prompt Success Rate
 
